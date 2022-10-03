@@ -1,0 +1,95 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    font-family: sans-serif;
+    background: linear-gradient(
+        to top left,
+        rgb(199, 69, 169),
+        rgb(165, 26, 73)
+    );
+    height: 100%;
+}
+
+main {
+    padding: 0px;
+    margin: 50px;
+    text-align: center;
+    border: 2px solid rgb(44, 7, 44);
+    height: 25rem;
+    width: 500px;
+}
+
+.player-1 {
+    float: left;
+    text-align: center;
+    background-color: rgb(241, 148, 229);
+    height: 18.7rem;
+    width: 150px;
+    padding: 50px;
+}
+
+.player-2 {
+    text-align: center;
+    background-color: rgb(201, 62, 182);
+    height: 18.7rem;
+    padding: 50px;
+}
+
+.score {
+    font-size: 1.7rem;
+    padding-top: 15px;
+}
+
+.current {
+    padding-top: 100px;
+    font-size: 1.1rem;
+}
+
+.current-score {
+    padding-top: 10px;
+    font-size: 1.2rem;
+}
+
+.dice {
+    width: 40px;
+}
+
+.img-dice {
+    position: relative;
+    top: -280px;
+}
+
+.btn-new-game {
+    position: relative;
+    top: -420px;
+    left: 75px;
+    padding: 5px;
+    border-radius: 10px;
+    border-style: none;
+}
+
+.btn-roll-dice {
+    position: relative;
+    top: -150px;
+    right: 15px;
+    padding: 5px;
+    border-radius: 10px;
+    border-style: none;
+}
+
+.btn-hold {
+    position:relative;
+    top: -100px;
+    right: 90px;
+    padding: 5px;
+    border-radius: 10px;
+    border-style: none;
+}

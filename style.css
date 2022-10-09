@@ -93,3 +93,7 @@ main {
     border-radius: 10px;
     border-style: none;
 }
+
+.hidden {
+    display: none;
+}

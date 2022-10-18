@@ -36,7 +36,7 @@ main {
     padding: 50px;
 }
 
-.player-0 {
+.player-1 {
     text-align: center;
     background-color: rgb(201, 62, 182);
     height: 18.7rem;
@@ -60,6 +60,8 @@ main {
 
 .dice {
     width: 40px;
+    position: relative;
+
 }
 
 .img-dice {
@@ -68,30 +70,21 @@ main {
 }
 
 .btn-new-game {
-    position: relative;
-    top: -420px;
-    left: 75px;
-    padding: 5px;
     border-radius: 10px;
     border-style: none;
+    padding: 5px;
 }
 
 .btn-roll-dice {
-    position: relative;
-    top: -150px;
-    right: 15px;
-    padding: 5px;
     border-radius: 10px;
     border-style: none;
+    padding: 5px;
 }
 
 .btn-hold {
-    position:relative;
-    top: -100px;
-    right: 90px;
-    padding: 5px;
     border-radius: 10px;
     border-style: none;
+    padding: 5px;
 }
 
 .hidden {

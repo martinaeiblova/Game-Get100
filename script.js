@@ -6,10 +6,10 @@ const diceEl = document.querySelector(".dice");
 const btnNew = document.querySelector(".btn-new-game");
 const btnRoll = document.querySelector(".btn-roll-dice");
 const btnHold = document.querySelector(".btn-hold");
-const score1El = document.querySelector("#score--1");
-const score2El = document.querySelector("#score--2");
+const score1El = document.querySelector("#score--0");
+const score2El = document.querySelector("#score--1");
+const currentScore0 = document.querySelector("#current--0");
 const currentScore1 = document.querySelector("#current--1");
-const currentScore2 = document.querySelector("#current--2");
 
 diceEl.classList.add("hidden");
 let currentScore = 0;
@@ -27,7 +27,7 @@ btnRoll.addEventListener("click", function() {
     diceEl.src =`dice-${randNum}.png`;
     if (randNum != 1){
         currentScore += randNum;
-        currentScore1.textContent = currentScore;
+        currentScore0.textContent = currentScore;
     }
     else {
     

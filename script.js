@@ -12,7 +12,10 @@ const currentScore0 = document.querySelector("#current--0");
 const currentScore1 = document.querySelector("#current--1");
 
 diceEl.classList.add("hidden");
+
+const scores = [0,0];
 let currentScore = 0;
+let activePlayer = 0;
 
 
 // click btnRoll: generate random number, displey this number
@@ -27,10 +30,10 @@ btnRoll.addEventListener("click", function() {
     diceEl.src =`dice-${randNum}.png`;
     if (randNum != 1){
         currentScore += randNum;
-        currentScore0.textContent = currentScore;
+        document.getElementById("current--${activePlayer}").textContent = currentScore;
     }
     else {
-    
+        
 
     }
 })

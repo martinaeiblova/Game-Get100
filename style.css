@@ -30,7 +30,7 @@ main {
 .player-0 {
     float: left;
     text-align: center;
-    background-color: rgb(241, 148, 229);
+    background-color: rgb(201, 62, 182);
     height: 18.7rem;
     width: 150px;
     padding: 50px;
@@ -41,6 +41,10 @@ main {
     background-color: rgb(201, 62, 182);
     height: 18.7rem;
     padding: 50px;
+}
+
+.player-active {
+    background-color: rgb(241, 148, 229);
 }
 
 .score {

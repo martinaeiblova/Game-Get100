@@ -29,7 +29,9 @@ btnRoll.addEventListener("click", function () {
             currentScore;
     } else {
         document.getElementById(`current--${activePlayer}`).textContent = 0;
+        document.getElementById(`player-${activePlayer}`).classList.remove("player-active");
         activePlayer = activePlayer === 0 ? 1 : 0;
+        document.getElementById(`player-${activePlayer}`).classList.add("player-active");
         currentScore = 0;
     }
 });

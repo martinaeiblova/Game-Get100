@@ -38,17 +38,24 @@ btnRoll.addEventListener("click", function () {
 });
 
 // click btnHold: currentScore will be score, přičte se k celkovému score
+//                když je 100..vítěz, když není:
 //                currentScore will be 0
 //                switch player
 
 btnHold.addEventListener("click", function () {
-    score += currentScore;
-    document.getElementById(`score--${activePlayer}`).textContent = score;
+    scores[activePlayer] += currentScore;
+    document.getElementById(`score--${activePlayer}`).textContent = scores[activePlayer];
     
-    document.getElementById(`current--${activePlayer}`).textContent = 0;
+    
+    if (scores[activePlayer] >= 100) {
+        document.querySelector(`.player--${activePlayer}`).textContent = `Player ${activePlayer + 1} is a winner.`
+    } else {
+        document.getElementById(`current--${activePlayer}`).textContent = 0;
     currentScore = 0;
     document.getElementById(`player-${activePlayer}`).classList.remove("player-active");
     activePlayer = activePlayer === 0 ? 1 : 0;
     document.getElementById(`player-${activePlayer}`).classList.add("player-active");
+    }
+    
 
 })

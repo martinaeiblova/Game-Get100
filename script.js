@@ -11,6 +11,7 @@ const currentScore1 = document.querySelector("#current--1");
 
 diceEl.classList.add("hidden");
 let currentScore = 0;
+let score = 0;
 const scores = [0, 0];
 let activePlayer = 0;
 
@@ -35,3 +36,19 @@ btnRoll.addEventListener("click", function () {
         currentScore = 0;
     }
 });
+
+// click btnHold: currentScore will be score, přičte se k celkovému score
+//                currentScore will be 0
+//                switch player
+
+btnHold.addEventListener("click", function () {
+    score += currentScore;
+    document.getElementById(`score--${activePlayer}`).textContent = score;
+    
+    document.getElementById(`current--${activePlayer}`).textContent = 0;
+    currentScore = 0;
+    document.getElementById(`player-${activePlayer}`).classList.remove("player-active");
+    activePlayer = activePlayer === 0 ? 1 : 0;
+    document.getElementById(`player-${activePlayer}`).classList.add("player-active");
+
+})

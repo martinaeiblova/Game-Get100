@@ -15,6 +15,14 @@ let score = 0;
 const scores = [0, 0];
 let activePlayer = 0;
 
+const switchPlayer = function () {
+    document.getElementById(`current--${activePlayer}`).textContent = 0;
+    currentScore = 0;
+    document.getElementById(`player-${activePlayer}`).classList.remove("player-active");
+    activePlayer = activePlayer === 0 ? 1 : 0;
+    document.getElementById(`player-${activePlayer}`).classList.add("player-active");
+}
+
 // click btnRoll: generate random number, displey this number
 // když je 1 - switch player
 // když jiné číslo - add dice roll (randNum) to current score
@@ -29,11 +37,7 @@ btnRoll.addEventListener("click", function () {
         document.getElementById(`current--${activePlayer}`).textContent =
             currentScore;
     } else {
-        document.getElementById(`current--${activePlayer}`).textContent = 0;
-        document.getElementById(`player-${activePlayer}`).classList.remove("player-active");
-        activePlayer = activePlayer === 0 ? 1 : 0;
-        document.getElementById(`player-${activePlayer}`).classList.add("player-active");
-        currentScore = 0;
+        switchPlayer();
     }
 });
 
@@ -50,11 +54,7 @@ btnHold.addEventListener("click", function () {
     if (scores[activePlayer] >= 100) {
         document.querySelector(`.player--${activePlayer}`).textContent = `Player ${activePlayer + 1} is a winner.`
     } else {
-        document.getElementById(`current--${activePlayer}`).textContent = 0;
-    currentScore = 0;
-    document.getElementById(`player-${activePlayer}`).classList.remove("player-active");
-    activePlayer = activePlayer === 0 ? 1 : 0;
-    document.getElementById(`player-${activePlayer}`).classList.add("player-active");
+        switchPlayer();
     }
     
 

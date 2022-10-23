@@ -94,3 +94,7 @@ main {
 .hidden {
     display: none;
 }
+
+.player-winner {
+    background-color: blueviolet;
+}

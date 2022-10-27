@@ -11,8 +11,7 @@ const currentScore1 = document.querySelector("#current--1");
 
 diceEl.classList.add("hidden");
 let currentScore = 0;
-let score = 0;
-const scores = [0, 0];
+let scores = [0, 0];
 let activePlayer = 0;
 
 const startNewGame = function () {
@@ -22,7 +21,7 @@ const startNewGame = function () {
     currentScore0.textContent = 0;
     currentScore1.textContent = 0;
     currentScore = 0;
-    score = 0;
+    scores = [0,0];
     document.querySelector(`.player--${activePlayer}`).textContent = `Player ${
         activePlayer + 1
     }`;

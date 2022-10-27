@@ -8,6 +8,7 @@ const score1 = document.querySelector("#score--0");
 const score2 = document.querySelector("#score--1");
 const currentScore0 = document.querySelector("#current--0");
 const currentScore1 = document.querySelector("#current--1");
+const notMoving = document.querySelector(".buttons-section");
 
 diceEl.classList.add("hidden");
 let currentScore = 0;
@@ -32,6 +33,7 @@ const startNewGame = function () {
     //disable(btnHold);
     btnRoll.disabled = false;
     btnHold.disabled = false;
+    notMoving.classList.remove("not-moving");
 };
 
 const switchPlayer = function () {
@@ -66,6 +68,7 @@ btnRoll.addEventListener("click", function () {
     } else {
         switchPlayer();
     }
+    notMoving.classList.add("not-moving");
 });
 
 // click btnHold: currentScore will be score, přičte se k celkovému score
@@ -78,7 +81,7 @@ btnHold.addEventListener("click", function () {
     document.getElementById(`score--${activePlayer}`).textContent =
         scores[activePlayer];
 
-    if (scores[activePlayer] >= 10) {
+    if (scores[activePlayer] >= 100) {
         document.querySelector(
             `.player--${activePlayer}`
         ).textContent = `Player ${activePlayer + 1} is a winner.`;

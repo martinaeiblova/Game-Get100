@@ -65,7 +65,6 @@ main {
 .dice {
     width: 40px;
     position: relative;
-
 }
 
 .img-dice {
@@ -97,4 +96,9 @@ main {
 
 .player-winner {
     background-color: blueviolet;
+}
+
+.not-moving {
+    position: relative;
+    top: -44px;
 }

@@ -21,6 +21,8 @@ const startNewGame = function () {
     score2El.textContent = 0;
     currentScore0.textContent = 0;
     currentScore1.textContent = 0;
+    currentScore = 0;
+    score = 0;
     document.querySelector(
         `.player--${activePlayer}`
     ).textContent = `Player ${activePlayer + 1}`;

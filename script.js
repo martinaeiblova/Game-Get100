@@ -15,17 +15,40 @@ let score = 0;
 const scores = [0, 0];
 let activePlayer = 0;
 
+const startNewGame = function () {
+    diceEl.classList.add("hidden");
+    score1El.textContent = 0;
+    score2El.textContent = 0;
+    currentScore0.textContent = 0;
+    currentScore1.textContent = 0;
+    document.querySelector(
+        `.player--${activePlayer}`
+    ).textContent = `Player ${activePlayer + 1}`;
+    document
+            .querySelector(`.player-${activePlayer}`)
+            .classList.remove("player-winner");
+    //disable(btnRoll);
+    //disable(btnHold);
+    btnRoll.disabled = false;
+    btnHold.disabled = false;
+};
+
 const switchPlayer = function () {
     document.getElementById(`current--${activePlayer}`).textContent = 0;
     currentScore = 0;
-    document.getElementById(`player-${activePlayer}`).classList.remove("player-active");
+    document
+        .getElementById(`player-${activePlayer}`)
+        .classList.remove("player-active");
     activePlayer = activePlayer === 0 ? 1 : 0;
-    document.getElementById(`player-${activePlayer}`).classList.add("player-active");
-}
+    document
+        .getElementById(`player-${activePlayer}`)
+        .classList.add("player-active");
 
-const disable = function(x) {
+};
+
+const disable = function (x) {
     x.disabled = true;
-}
+};
 
 // click btnRoll: generate random number, displey this number
 // když je 1 - switch player
@@ -52,17 +75,23 @@ btnRoll.addEventListener("click", function () {
 
 btnHold.addEventListener("click", function () {
     scores[activePlayer] += currentScore;
-    document.getElementById(`score--${activePlayer}`).textContent = scores[activePlayer];
-    
-    
-    if (scores[activePlayer] >= 30) {
-        document.querySelector(`.player--${activePlayer}`).textContent = `Player ${activePlayer + 1} is a winner.`
-        document.querySelector(`.player-${activePlayer}`).classList.add("player-winner");
+    document.getElementById(`score--${activePlayer}`).textContent =
+        scores[activePlayer];
+
+    if (scores[activePlayer] >= 10) {
+        document.querySelector(
+            `.player--${activePlayer}`
+        ).textContent = `Player ${activePlayer + 1} is a winner.`;
+        document
+            .querySelector(`.player-${activePlayer}`)
+            .classList.add("player-winner");
         disable(btnRoll);
         disable(btnHold);
     } else {
         switchPlayer();
     }
-    
+});
 
-})
+btnNew.addEventListener("click", function () {
+    startNewGame();
+});

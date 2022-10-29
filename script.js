@@ -14,6 +14,7 @@ diceEl.classList.add("hidden");
 let currentScore = 0;
 let scores = [0, 0];
 let activePlayer = 0;
+const maxScore = 10;
 
 const startNewGame = function () {
     diceEl.classList.add("hidden");
@@ -81,7 +82,7 @@ btnHold.addEventListener("click", function () {
     document.getElementById(`score--${activePlayer}`).textContent =
         scores[activePlayer];
 
-    if (scores[activePlayer] >= 100) {
+    if (scores[activePlayer] >= maxScore) {
         document.querySelector(
             `.player--${activePlayer}`
         ).textContent = `Player ${activePlayer + 1} is a winner.`;

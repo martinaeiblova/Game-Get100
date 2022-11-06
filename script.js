@@ -9,12 +9,16 @@ const score2 = document.querySelector("#score--1");
 const currentScore0 = document.querySelector("#current--0");
 const currentScore1 = document.querySelector("#current--1");
 const notMoving = document.querySelector(".buttons-section");
+const player1 = document.querySelector(".player--0");
+const player2 = document.querySelector(".player--1");
 
 diceEl.classList.add("hidden");
 let currentScore = 0;
 let scores = [0, 0];
 let activePlayer = 0;
 const maxScore = 10;
+
+// const fairPlay = document.querySelector(".player-1").classList.contains("player-active");
 
 const startNewGame = function () {
     diceEl.classList.add("hidden");
@@ -23,18 +27,23 @@ const startNewGame = function () {
     currentScore0.textContent = 0;
     currentScore1.textContent = 0;
     currentScore = 0;
-    scores = [0,0];
-    document.querySelector(`.player--${activePlayer}`).textContent = `Player ${
-        activePlayer + 1
-    }`;
-    document
-        .querySelector(`.player-${activePlayer}`)
-        .classList.remove("player-winner");
-    //disable(btnRoll);
-    //disable(btnHold);
+    scores = [0, 0];
+    
+    
+    player1.textContent = "Player 1";
+    player2.textContent = "Player 2";
+    
+    document.querySelector("#player-0").classList.remove("player-winner");
+    document.querySelector("#player-1").classList.remove("player-winner");
+    document.querySelector("#player-0").classList.add("player-active");
+    document.querySelector("#player-1").classList.remove("player-active");
+
+
     btnRoll.disabled = false;
     btnHold.disabled = false;
     notMoving.classList.remove("not-moving");
+
+    
 };
 
 const switchPlayer = function () {
@@ -82,16 +91,33 @@ btnHold.addEventListener("click", function () {
     document.getElementById(`score--${activePlayer}`).textContent =
         scores[activePlayer];
 
-    if (scores[activePlayer] >= maxScore) {
-        document.querySelector(
-            `.player--${activePlayer}`
-        ).textContent = `Player ${activePlayer + 1} is a winner.`;
-        document
-            .querySelector(`.player-${activePlayer}`)
-            .classList.add("player-winner");
+    if (
+        scores[0] >= maxScore &&
+        scores[0] > scores[1] &&
+        document.querySelector(".player-1").classList.contains("player-active")
+    ) {
+        player1.textContent = "Winner";
+        document.querySelector(".player-0").classList.add("player-winner");
         disable(btnRoll);
         disable(btnHold);
-    } else {
+    } else if (
+        scores[1] >= maxScore &&
+        scores[1] > scores[0] &&
+        document.querySelector(".player-1").classList.contains("player-active")
+    ) {
+        player2.textContent = "Winner";
+        document.querySelector(".player-1").classList.add("player-winner");
+        disable(btnRoll);
+        disable(btnHold);
+    } //else if (scores[1] >= maxScore &&
+       // scores[1] > scores[0] && document.querySelector(".player-1").classList.contains("player-active") && (randNum = 1)){
+       //     player1.textContent = "Winner";
+      //      document.querySelector(".player-0").classList.add("player-winner");
+       //     disable(btnRoll);
+       //     disable(btnHold);       
+    //}
+    
+    else {
         switchPlayer();
     }
 });

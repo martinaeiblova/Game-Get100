@@ -29,23 +29,19 @@ const startNewGame = function () {
     currentScore = 0;
     scores = [0, 0];
     activePlayer = 0;
-    
-    
+
     player1.textContent = "Player 1";
     player2.textContent = "Player 2";
-    
+
     document.querySelector("#player-0").classList.add("player-active");
     document.querySelector("#player-1").classList.remove("player-active");
 
     document.querySelector("#player-0").classList.remove("player-winner");
     document.querySelector("#player-1").classList.remove("player-winner");
-    
 
     btnRoll.disabled = false;
     btnHold.disabled = false;
     notMoving.classList.remove("not-moving");
-
-    
 };
 
 const switchPlayer = function () {
@@ -69,7 +65,7 @@ const disable = function (x) {
 // když jiné číslo - add dice roll (randNum) to current score
 //                 - display new score
 
-btnRoll.addEventListener("click", function () {
+const rollDice = function () {
     const randNum = Math.trunc(Math.random() * 6) + 1;
     diceEl.classList.remove("hidden");
     diceEl.src = `dice-${randNum}.png`;
@@ -81,14 +77,23 @@ btnRoll.addEventListener("click", function () {
         switchPlayer();
     }
     notMoving.classList.add("not-moving");
-});
+};
 
-// click btnHold: currentScore will be score, přičte se k celkovému score
-//                když je 100..vítěz, když není:
-//                currentScore will be 0
-//                switch player
+const winnerIsPlayer1 = function () {
+    player1.textContent = "Winner";
+    document.querySelector(".player-0").classList.add("player-winner");
+    disable(btnRoll);
+    disable(btnHold);
+};
 
-btnHold.addEventListener("click", function () {
+const winnerIsPlayer2 = function () {
+    player2.textContent = "Winner";
+    document.querySelector(".player-1").classList.add("player-winner");
+    disable(btnRoll);
+    disable(btnHold);
+};
+
+const holdScore = function () {
     scores[activePlayer] += currentScore;
     document.getElementById(`score--${activePlayer}`).textContent =
         scores[activePlayer];
@@ -98,30 +103,20 @@ btnHold.addEventListener("click", function () {
         scores[0] > scores[1] &&
         document.querySelector(".player-1").classList.contains("player-active")
     ) {
-        player1.textContent = "Winner";
-        document.querySelector(".player-0").classList.add("player-winner");
-        disable(btnRoll);
-        disable(btnHold);
+        winnerIsPlayer1();
     } else if (
         scores[1] >= maxScore &&
         scores[1] > scores[0] &&
         document.querySelector(".player-1").classList.contains("player-active")
     ) {
-        player2.textContent = "Winner";
-        document.querySelector(".player-1").classList.add("player-winner");
-        disable(btnRoll);
-        disable(btnHold);
-    } //else if (scores[1] >= maxScore &&
-       // scores[1] > scores[0] && document.querySelector(".player-1").classList.contains("player-active") && (randNum = 1)){
-       //     player1.textContent = "Winner";
-      //      document.querySelector(".player-0").classList.add("player-winner");
-       //     disable(btnRoll);
-       //     disable(btnHold);       
-    //}
-    
-    else {
+        winnerIsPlayer2();
+    } else {
         switchPlayer();
     }
-});
+};
+
+btnRoll.addEventListener("click", rollDice);
+
+btnHold.addEventListener("click", holdScore);
 
 btnNew.addEventListener("click", startNewGame);

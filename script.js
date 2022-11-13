@@ -65,19 +65,6 @@ const disable = function (x) {
 // když jiné číslo - add dice roll (randNum) to current score
 //                 - display new score
 
-const rollDice = function () {
-    const randNum = Math.trunc(Math.random() * 6) + 1;
-    diceEl.classList.remove("hidden");
-    diceEl.src = `dice-${randNum}.png`;
-    if (randNum != 1) {
-        currentScore += randNum;
-        document.getElementById(`current--${activePlayer}`).textContent =
-            currentScore;
-    } else {
-        switchPlayer();
-    }
-    notMoving.classList.add("not-moving");
-};
 
 const winnerIsPlayer1 = function () {
     player1.textContent = "Winner";
@@ -92,6 +79,23 @@ const winnerIsPlayer2 = function () {
     disable(btnRoll);
     disable(btnHold);
 };
+
+const rollDice = function () {
+    const randNum = Math.trunc(Math.random() * 6) + 1;
+    diceEl.classList.remove("hidden");
+    diceEl.src = `dice-${randNum}.png`;
+    if (randNum != 1) {
+        currentScore += randNum;
+        document.getElementById(`current--${activePlayer}`).textContent =
+            currentScore;
+    } else if (randNum == 1 && scores[0] >= maxScore && document.querySelector(".player-1").classList.contains("player-active")) {
+        winnerIsPlayer1();
+    } else {
+        switchPlayer();
+    }
+    notMoving.classList.add("not-moving");
+};
+
 
 const holdScore = function () {
     scores[activePlayer] += currentScore;

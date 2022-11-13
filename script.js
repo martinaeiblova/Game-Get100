@@ -28,16 +28,18 @@ const startNewGame = function () {
     currentScore1.textContent = 0;
     currentScore = 0;
     scores = [0, 0];
+    activePlayer = 0;
     
     
     player1.textContent = "Player 1";
     player2.textContent = "Player 2";
     
-    document.querySelector("#player-0").classList.remove("player-winner");
-    document.querySelector("#player-1").classList.remove("player-winner");
     document.querySelector("#player-0").classList.add("player-active");
     document.querySelector("#player-1").classList.remove("player-active");
 
+    document.querySelector("#player-0").classList.remove("player-winner");
+    document.querySelector("#player-1").classList.remove("player-winner");
+    
 
     btnRoll.disabled = false;
     btnHold.disabled = false;

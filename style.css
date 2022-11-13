@@ -12,8 +12,8 @@ body {
     font-family: sans-serif;
     background: linear-gradient(
         to top left,
-        rgb(177, 23, 177),
-        rgb(165, 26, 73)
+        rgb(37, 175, 83),
+        rgb(5, 85, 25)
     );
     height: 100%;
 }
@@ -22,7 +22,7 @@ main {
     padding: 0px;
     margin: 50px;
     text-align: center;
-    border: 2px solid rgb(44, 7, 44);
+    border: 2px solid rgb(4, 44, 21);
     height: 25rem;
     width: 500px;
 }
@@ -30,7 +30,7 @@ main {
 .player-0 {
     float: left;
     text-align: center;
-    background-color: rgb(201, 62, 182);
+    background-color: rgb(21, 141, 71);
     height: 18.7rem;
     width: 150px;
     padding: 50px;
@@ -38,13 +38,13 @@ main {
 
 .player-1 {
     text-align: center;
-    background-color: rgb(201, 62, 182);
+    background-color: rgb(21, 141, 71);
     height: 18.7rem;
     padding: 50px;
 }
 
 .player-active {
-    background-color: rgb(241, 148, 229);
+    background-color: rgb(117, 235, 156);
 }
 
 .score {
@@ -95,7 +95,8 @@ main {
 }
 
 .player-winner {
-    background-color: blueviolet;
+    background-color:rgba(231, 87, 87, 0.925);
+    color:whitesmoke;
 }
 
 .not-moving {

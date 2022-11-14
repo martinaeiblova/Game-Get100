@@ -16,9 +16,9 @@ diceEl.classList.add("hidden");
 let currentScore = 0;
 let scores = [0, 0];
 let activePlayer = 0;
-const maxScore = 10;
+const maxScore = 100;
 
-// const fairPlay = document.querySelector(".player-1").classList.contains("player-active");
+
 
 const startNewGame = function () {
     diceEl.classList.add("hidden");
@@ -60,10 +60,6 @@ const disable = function (x) {
     x.disabled = true;
 };
 
-// click btnRoll: generate random number, displey this number
-// když je 1 - switch player
-// když jiné číslo - add dice roll (randNum) to current score
-//                 - display new score
 
 
 const winnerIsPlayer1 = function () {
